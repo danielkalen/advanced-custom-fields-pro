@@ -553,7 +553,6 @@ if( typeof acf !== 'undefined' ) {
 	*/
 	
 	function save_post( $post_id, $post ) {
-		return $post_id; // temporary disable
 		
 		// bail ealry if no allowed to save this post type
 		if( !$this->allow_save_post($post) ) return $post_id;
@@ -576,12 +575,12 @@ if( typeof acf !== 'undefined' ) {
 		acf_save_post( $post_id );
 		
 		
-		// save revision
-		if( post_type_supports($post->post_type, 'revisions') ) {
+		// // save revision
+		// if( post_type_supports($post->post_type, 'revisions') ) {
 			
-			acf_save_post_revision( $post_id );
+		// 	acf_save_post_revision( $post_id );
 			
-		}
+		// }
 				
 		
 		// return
