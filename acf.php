@@ -459,12 +459,11 @@ class acf {
 		
 		// vars
 		$version = acf_get_setting('version');
-		$min = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 		
 		
 		// scripts
-		wp_register_script('acf-input', acf_get_dir("assets/js/acf-input{$min}.js"), array('jquery', 'jquery-ui-core', 'jquery-ui-sortable', 'jquery-ui-resizable'), $version );
-		wp_register_script('acf-field-group', acf_get_dir("assets/js/acf-field-group{$min}.js"), array('acf-input'), $version );
+		wp_register_script('acf-input', acf_get_dir("assets/js/acf-input.js"), array('jquery', 'jquery-ui-core', 'jquery-ui-sortable', 'jquery-ui-resizable'), $version );
+		wp_register_script('acf-field-group', acf_get_dir("assets/js/acf-field-group.js"), array('acf-input'), $version );
 		
 		
 		// styles
