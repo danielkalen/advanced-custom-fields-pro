@@ -110,12 +110,11 @@ class acf_pro {
 		
 		// vars
 		$version = acf_get_setting('version');
-		$min = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 		
 		
 		// register scripts
-		wp_register_script( 'acf-pro-input', acf_get_dir( "pro/assets/js/acf-pro-input{$min}.js" ), array('acf-input'), $version );
-		wp_register_script( 'acf-pro-field-group', acf_get_dir( "pro/assets/js/acf-pro-field-group{$min}.js" ), array('acf-field-group'), $version );
+		wp_register_script( 'acf-pro-input', acf_get_dir( "pro/assets/js/acf-pro-input.js" ), array('acf-input'), $version );
+		wp_register_script( 'acf-pro-field-group', acf_get_dir( "pro/assets/js/acf-pro-field-group.js" ), array('acf-field-group'), $version );
 		
 		
 		// register styles
