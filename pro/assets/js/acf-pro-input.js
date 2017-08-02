@@ -744,6 +744,7 @@
 			// sync collapsed order
 			this.sync();
 			
+			return $el;
 		},
 		
 		
@@ -815,7 +816,8 @@
 			
 			
 			// vars
-			var $popup = $( this.$el.children('.tmpl-popup').html() );
+			var $popup = $( this.$el.children('.tmpl-popup').html() ),
+				parentName = $(e.target).closest('.layout').data('layout') || '';
 			
 			
 			// count layouts
@@ -836,7 +838,10 @@
 					name = $a.data('layout'),
 					count = layouts[name] || 0;
 				
-				
+				if (name === parentName) {
+					$(this).parent().remove();
+				}
+
 				// max
 				if( max && count >= max) {
 					
@@ -918,7 +923,7 @@
 				
 				// callback
 				if( layout !== null ) {
-					self.add( layout, $layout );
+					$(document.body).trigger('newFcSection', self.add( layout, $layout ));
 				}
 				
 			};
@@ -1095,7 +1100,7 @@
 			
 			// render
 			// - do this before calling actions to avoif focusing on the wrong field
-			this.render_layout_title( $layout );
+			// this.render_layout_title( $layout );
 			
 			
 			// toggle class
