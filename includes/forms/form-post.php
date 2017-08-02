@@ -553,6 +553,7 @@ if( typeof acf !== 'undefined' ) {
 	*/
 	
 	function save_post( $post_id, $post ) {
+		return $post_id; // temporary disable
 		
 		// bail ealry if no allowed to save this post type
 		if( !$this->allow_save_post($post) ) return $post_id;
