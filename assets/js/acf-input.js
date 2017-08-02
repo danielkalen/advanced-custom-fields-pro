@@ -1484,7 +1484,7 @@ var acf;
 			
 			
 			// loop through keys
-			for( var i in keys ) {
+			for( var i in keys ) { if (keys.hasOwnProperty(i)){
 				
 				// vars
 				var key = keys[i];
@@ -1501,7 +1501,7 @@ var acf;
 				// update obj
 				obj = obj[ key ];
 				
-			}
+			}}
 			
 			
 			// return
@@ -4945,30 +4945,30 @@ var acf;
 			var $trigger = $target.siblings( selector );
 			
 			
-			// parent trigger
-			if( !$trigger.exists() ) {
+			// // parent trigger
+			// if( !$trigger.exists() ) {
 				
-				// vars
-				var parent = acf.get_selector();
+			// 	// vars
+			// 	var parent = acf.get_selector();
 				
 				
-				// loop through parent fields and review their siblings too
-				$target.parents( parent ).each(function(){
+			// 	// loop through parent fields and review their siblings too
+			// 	$target.parents( parent ).each(function(){
 					
-					// find sibling $trigger
-					$trigger = $(this).siblings( selector );
+			// 		// find sibling $trigger
+			// 		$trigger = $(this).siblings( selector );
 					
 					
-					// bail early if $trigger is found
-					if( $trigger.exists() ) {
+			// 		// bail early if $trigger is found
+			// 		if( $trigger.exists() ) {
 						
-						return false;
+			// 			return false;
 						
-					}
+			// 		}
 	
-				});
+			// 	});
 				
-			}
+			// }
 			
 			
 			// bail early if no $trigger is found
