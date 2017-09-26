@@ -353,10 +353,8 @@ function acf_update_value( $value = null, $post_id = 0, $field ) {
 	
 	
 	// allow null to delete
-	if( $value === null ) {
-		
-		return acf_delete_value( $post_id, $field );
-		
+	if( $value === null && $field['type'] !== 'reusable_field_group') {
+		return acf_delete_value( $post_id, $field );		
 	}
 	
 	
